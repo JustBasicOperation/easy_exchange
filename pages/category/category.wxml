@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <view class="search-input" bindtap="goToSearch">
+      <icon type="search" size="14" color="#999"></icon>
+      <text>搜索二手物品</text>
+    </view>
+  </view>
+
+  <!-- 分类导航 -->
+  <view class="category-nav">
+    <scroll-view scroll-x="true" class="category-scroll">
+      <view class="category-item {{selectedCategoryId === item.id ? 'active' : ''}}" 
+            wx:for="{{categories}}" 
+            wx:key="id" 
+            bindtap="selectCategory" 
+            data-id="{{item.id}}">
+        <text>{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <view class="filter-item {{sortType === 'default' ? 'active' : ''}}" bindtap="changeSort" data-type="default">
+      <text>默认</text>
+    </view>
+    <view class="filter-item {{sortType === 'new' ? 'active' : ''}}" bindtap="changeSort" data-type="new">
+      <text>最新</text>
+    </view>
+    <view class="filter-item {{sortType === 'price' ? 'active' : ''}}" bindtap="changeSort" data-type="price">
+      <text>价格</text>
+      <view class="price-arrows">
+        <image class="arrow {{priceOrder === 'asc' ? 'active' : ''}}" src="../../images/icon/arrow-up.png"></image>
+        <image class="arrow {{priceOrder === 'desc' ? 'active' : ''}}" src="../../images/icon/arrow-down.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="item-list" wx:if="{{items.length > 0}}">
+    <view class="item-card" wx:for="{{items}}" wx:key="_id" bindtap="goToDetail" data-id="{{item._id}}">
+      <image src="{{item.images[0]}}" class="item-image" mode="aspectFill"></image>
+      <view class="item-info">
+        <text class="item-title text-ellipsis-2">{{item.title}}</text>
+        <view class="item-meta">
+          <text class="price">¥{{item.price}}</text>
+          <text class="location">{{item.location}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{items.length === 0 && !isLoading}}">
+    <image src="../../images/empty-state.png" class="empty-image"></image>
+    <text class="empty-text">暂无相关商品</text>
+  </view>
+
+  <!-- 加载更多 -->
+  <view class="loading-more" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+  <view class="loading-more" wx:if="{{loadNoMore}}">
+    <text>没有更多了</text>
+  </view>
+</view>
