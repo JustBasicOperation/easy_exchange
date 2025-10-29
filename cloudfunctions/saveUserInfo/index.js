@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID
   const unionid = wxContext.UNIONID
-  const { userInfo } = event
+  const { userInfo, userProfile } = event
   
   try {
     // 查询用户是否已存在
@@ -20,12 +20,28 @@ exports.main = async (event, context) => {
       _openid: openid
     }).get()
     
-    // 合并用户信息
-    const userData = {
-      ...userInfo,
-      _openid: openid,
-      unionid: unionid || '',
-      updateTime: db.serverDate()
+    let userData = {}
+    
+    if (userInfo) {
+      // 基本用户信息
+      userData = {
+        ...userInfo,
+        _openid: openid,
+        unionid: unionid || '',
+        updateTime: db.serverDate()
+      }
+    }
+    
+    if (userProfile) {
+      // 个人资料信息
+      userData = {
+        ...userData,
+        realName: userProfile.realName,
+        contactNumber: userProfile.contactNumber,
+        school: userProfile.school,
+        city: userProfile.city,
+        updateTime: db.serverDate()
+      }
     }
     
     if (userResult.data.length > 0) {
