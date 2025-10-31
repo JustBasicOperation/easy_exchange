@@ -1,0 +1,50 @@
+.container {
+  padding: 20rpx;
+}
+
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item-card {
+  width: 48%;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.item-image {
+  width: 100%;
+  height: 300rpx;
+}
+
+.item-info {
+  padding: 20rpx;
+}
+
+.item-title {
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.item-price {
+  font-size: 32rpx;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500rpx;
+  color: #999;
+}

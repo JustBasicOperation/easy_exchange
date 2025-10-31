@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="item-list" wx:if="{{items.length > 0}}">
+    <view class="item-card" wx:for="{{items}}" wx:key="_id">
+      <image class="item-image" src="{{item.images[0]}}" mode="aspectFill"></image>
+      <view class="item-info">
+        <text class="item-title">{{item.title}}</text>
+        <text class="item-price">￥{{item.price}}</text>
+        <text class="item-status">{{item.status}}</text>
+      </view>
+      <view class="item-actions">
+        <button class="edit-btn" size="mini" bindtap="editItem" data-id="{{item._id}}">编辑</button>
+        <button class="delete-btn" size="mini" type="warn" bindtap="deleteItem" data-id="{{item._id}}">删除</button>
+      </view>
+    </view>
+  </view>
+  <view class="empty-state" wx:else>
+    <text>您还没有发布任何物品</text>
+  </view>
+</view>

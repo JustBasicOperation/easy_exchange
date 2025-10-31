@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="item-list" wx:if="{{items.length > 0}}">
+    <view class="item-card" wx:for="{{items}}" wx:key="_id" bindtap="navigateToDetail" data-id="{{item._id}}">
+      <image class="item-image" src="{{item.images[0]}}" mode="aspectFill"></image>
+      <view class="item-info">
+        <text class="item-title">{{item.title}}</text>
+        <text class="item-price">￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="empty-state" wx:else>
+    <text>您还没有收藏任何物品</text>
+  </view>
+</view>

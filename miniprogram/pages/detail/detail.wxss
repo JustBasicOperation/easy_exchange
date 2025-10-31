@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-swiper {
+  width: 100%;
+  height: 750rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
+
+.item-info {
+  padding: 20rpx;
+  background-color: #fff;
+}
+
+.price-favorite {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+
+.price {
+  font-size: 40rpx;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.favorite-btn {
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.favorite-btn image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.description {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.nickname {
+  font-size: 32rpx;
+}
+
+.action-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  height: 100rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+}
+
+.chat-btn,
+.buy-btn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+}
+
+.buy-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}

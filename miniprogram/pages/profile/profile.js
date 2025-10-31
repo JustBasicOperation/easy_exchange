@@ -186,6 +186,14 @@ Page({
     });
   },
 
+  // 页面跳转
+  navigateTo: function(e) {
+    const url = e.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: url
+    });
+  },
+
   // 退出登录
   logout: function() {
     wx.showModal({

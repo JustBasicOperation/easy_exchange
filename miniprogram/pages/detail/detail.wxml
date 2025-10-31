@@ -1,2 +1,29 @@
-<!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view class="container">
+  <swiper class="image-swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500">
+    <swiper-item wx:for="{{item.images}}" wx:key="index">
+      <image src="{{item}}" class="slide-image" mode="aspectFill"/>
+    </swiper-item>
+  </swiper>
+
+  <view class="item-info">
+    <view class="price-favorite">
+      <text class="price">￥{{item.price}}</text>
+      <view class="favorite-btn" bindtap="toggleFavorite">
+        <image src="{{isFavorited ? '../../images/icon/favorited.png' : '../../images/icon/favorite.png'}}"></image>
+        <text>{{isFavorited ? '已收藏' : '收藏'}}</text>
+      </view>
+    </view>
+    <text class="title">{{item.title}}</text>
+    <text class="description">{{item.description}}</text>
+  </view>
+
+  <view class="user-info">
+    <image class="avatar" src="{{item.seller.avatarUrl}}"></image>
+    <text class="nickname">{{item.seller.nickName}}</text>
+  </view>
+
+  <view class="action-buttons">
+    <button class="chat-btn">私聊</button>
+    <button class="buy-btn">立即购买</button>
+  </view>
+</view>

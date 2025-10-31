@@ -1,2 +1,41 @@
-<!--pages/publish/publish.wxml-->
-<text>pages/publish/publish.wxml</text>
+<view class="container">
+  <form bindsubmit="submitForm">
+    <view class="form-group">
+      <label>标题</label>
+      <input name="title" placeholder="请输入物品标题" />
+    </view>
+    <view class="form-group">
+      <label>描述</label>
+      <textarea name="description" placeholder="请输入物品描述"></textarea>
+    </view>
+    <view class="form-group">
+      <label>分类</label>
+      <picker name="category" range="{{categories}}" value="{{categoryIndex}}" bindchange="bindCategoryChange">
+        <view class="picker">
+          {{categories[categoryIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="form-group">
+      <label>价格</label>
+      <input name="price" type="digit" placeholder="请输入价格" />
+    </view>
+    <view class="form-group">
+      <label>原价</label>
+      <input name="originalPrice" type="digit" placeholder="请输入原价" />
+    </view>
+    <view class="form-group">
+      <label>图片</label>
+      <view class="image-uploader">
+        <view class="image-list">
+          <view class="image-item" wx:for="{{images}}" wx:key="*this">
+            <image src="{{item}}" mode="aspectFill"></image>
+            <view class="delete-btn" data-index="{{index}}" bindtap="deleteImage">×</view>
+          </view>
+        </view>
+        <view class="upload-btn" bindtap="chooseImage">+</view>
+      </view>
+    </view>
+    <button form-type="submit" type="primary">发布</button>
+  </form>
+</view>

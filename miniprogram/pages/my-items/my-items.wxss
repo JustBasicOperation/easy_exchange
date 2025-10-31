@@ -1,0 +1,65 @@
+.container {
+  padding: 20rpx;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-card {
+  display: flex;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+
+.item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.item-price {
+  font-size: 28rpx;
+  color: #e74c3c;
+  margin-bottom: 10rpx;
+}
+
+.item-status {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+  margin-left: 20rpx;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500rpx;
+  color: #999;
+}
